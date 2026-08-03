@@ -1,7 +1,6 @@
 import QtQuick
 import QtQuick.Layouts
 import SleexUiKit.Appearance
-import SleexUiKit.Widgets as Widgets
 
 RowLayout {
     id: root
@@ -18,11 +17,7 @@ RowLayout {
             implicitWidth: index === root.currentIndex ? 24 : 8
             implicitHeight: 8
             radius: 4
-            color: index === root.currentIndex ?
-                   (Appearance.colors ? Appearance.colors.colPrimary : "#8A70D6") :
-                   (index < root.currentIndex ?
-                    (Appearance.colors ? Appearance.colors.colLayer2Hover : "#363445") :
-                    (Appearance.colors ? Appearance.colors.colLayer2 : "#2A2837"))
+            color: index === root.currentIndex ? (Appearance.colors.colPrimary) : (index < root.currentIndex ? (Appearance.colors.colLayer2Hover) : (Appearance.colors.colLayer2))
 
             Behavior on implicitWidth {
                 NumberAnimation { duration: 250; easing.type: Easing.OutQuint }

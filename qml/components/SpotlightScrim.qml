@@ -86,7 +86,6 @@ Item {
         }
     }
 
-    // MouseArea interceptor: allows mouse pass-through inside the spotlight cutout area so users can interact with/hover target desktop elements
     MouseArea {
         anchors.fill: parent
         enabled: root.active
@@ -95,7 +94,6 @@ Item {
 
         function contains(point) {
             if (!root.active) return false;
-            // Exclude spotlight cutout hole from mouse capture to enable hover & interaction on focused UI elements
             if (root.animatedWidth > 0 && root.animatedHeight > 0) {
                 if (point.x >= root.animatedX && point.x <= root.animatedX + root.animatedWidth &&
                     point.y >= root.animatedY && point.y <= root.animatedY + root.animatedHeight) {

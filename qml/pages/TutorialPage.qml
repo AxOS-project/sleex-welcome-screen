@@ -2,7 +2,6 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
 import SleexUiKit.Appearance
-import SleexUiKit.Widgets as Widgets
 import SleexUiKit.Functions
 
 import "../components"

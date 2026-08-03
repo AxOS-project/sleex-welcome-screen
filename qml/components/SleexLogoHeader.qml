@@ -30,7 +30,7 @@ ColumnLayout {
         text: root.titleText
         font.pixelSize: 42
         font.weight: Font.Bold
-        color: Appearance.colors ? Appearance.colors.colOnLayer1 : "#FFFFFF"
+        color: Appearance.colors.colOnLayer1
         horizontalAlignment: Text.AlignHCenter
     }
 
@@ -38,7 +38,7 @@ ColumnLayout {
         Layout.alignment: Qt.AlignHCenter
         text: root.subtitleText
         font.pixelSize: 15
-        color: Appearance.colors ? Appearance.colors.colSubtext : "#A0A0B0"
+        color: Appearance.colors.colSubtext
         horizontalAlignment: Text.AlignHCenter
     }
 }
