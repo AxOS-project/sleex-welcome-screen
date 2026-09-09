@@ -15,6 +15,8 @@ QtObject {
                 return Qt.rect(0, 0, w, 48)
             }
             property string preferredPosition: "bottom"
+            property string startCmd: ""
+            property string endCmd: ""
         },
         QtObject {
             property string id: "workspaces"
@@ -28,6 +30,8 @@ QtObject {
                 return Qt.rect((w - barW) / 2, 0, barW, 48)
             }
             property string preferredPosition: "bottom"
+            property string startCmd: ""
+            property string endCmd: ""
         },
         QtObject {
             property string id: "systray"
@@ -41,6 +45,8 @@ QtObject {
                 return Qt.rect(w - trayW - 8, 0, trayW, 48)
             }
             property string preferredPosition: "bottom-right"
+            property string startCmd: ""
+            property string endCmd: ""
         },
         QtObject {
             property string id: "dock"
@@ -55,6 +61,8 @@ QtObject {
                 return Qt.rect((w - dockW) / 2, h - dockH, dockW, dockH)
             }
             property string preferredPosition: "top"
+            property string startCmd: ""
+            property string endCmd: ""
         },
         QtObject {
             property string id: "cornerPopup"
@@ -69,6 +77,8 @@ QtObject {
                 return Qt.rect(0, h - popupH, popupW + 12, popupH)
             }
             property string preferredPosition: "top-left"
+            property string startCmd: "qs -p /usr/share/sleex/ ipc call cornerPopup open"
+            property string endCmd: "qs -p /usr/share/sleex/ ipc call cornerPopup close"
         },
         QtObject {
             property string id: "dashboard"
@@ -83,6 +93,8 @@ QtObject {
                 return Qt.rect((w - dashW) / 2, (h - dashH) / 2, dashW, dashH)
             }
             property string preferredPosition: "left"
+            property string startCmd: "qs -p /usr/share/sleex/ ipc call dashboard open"
+            property string endCmd: "qs -p /usr/share/sleex/ ipc call dashboard close"
         },
         QtObject {
             property string id: "wallpaper"
@@ -94,6 +106,8 @@ QtObject {
             property var calcTargetRect: function(w, h) {
                 return Qt.rect(16, 52, w - 32, 210)
             }
+            property string startCmd: "qs -p /usr/share/sleex/ ipc call wppselector open"
+            property string endCmd: "qs -p /usr/share/sleex/ ipc call wppselector close"  
             property string preferredPosition: "bottom"
         },
         QtObject {
@@ -108,6 +122,8 @@ QtObject {
                 var cheatH = 950;
                 return Qt.rect((w - cheatW) / 2, (h - cheatH) / 2, cheatW, cheatH)
             }
+            property string startCmd: "qs -p /usr/share/sleex/ ipc call cheatsheet open"
+            property string endCmd: "qs -p /usr/share/sleex/ ipc call cheatsheet close"
             property string preferredPosition: "bottom"
         },
         QtObject {
@@ -122,6 +138,8 @@ QtObject {
                 var bgH = Math.min(240, h * 0.3);
                 return Qt.rect((w - bgW) / 2, (h - bgH) / 2 - 30, bgW, bgH)
             }
+            property string startCmd: ""
+            property string endCmd: ""
             property string preferredPosition: "bottom"
         },
         QtObject {
@@ -136,6 +154,8 @@ QtObject {
                 var modalH = Math.min(360, h - 80);
                 return Qt.rect((w - modalW) / 2, (h - modalH) / 2, modalW, modalH)
             }
+            property string startCmd: ""
+            property string endCmd: ""
             property string preferredPosition: "center"
         }
     ]

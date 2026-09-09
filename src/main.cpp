@@ -4,6 +4,17 @@
 #include <QScreen>
 #include <QProcess>
 #include <LayerShellQt/window.h>
+#include <QQmlContext>
+
+class SysUtils : public QObject {
+    Q_OBJECT
+public:
+    Q_INVOKABLE void runCmd(const QString &command) {
+        if (!command.isEmpty()) {
+            QProcess::startDetached("sh", QStringList{"-c", command});
+        }
+    }
+};
 
 int main(int argc, char *argv[]) {
     QGuiApplication app(argc, argv);
@@ -13,6 +24,9 @@ int main(int argc, char *argv[]) {
     QProcess::startDetached("hyprctl", QStringList{"eval", "hl.layer_rule({match = { namespace = 'welcome-screen' }, blur = false })"});
 
     QQmlApplicationEngine engine;
+    
+    SysUtils sysUtils;
+    engine.rootContext()->setContextProperty("SysUtils", &sysUtils);
     
     engine.addImportPath("/usr/lib/qt6/qml");
     engine.addImportPath("/home/ardox/Documents/axos/sleex-ui-kit/src/build/qml");
@@ -48,3 +62,5 @@ int main(int argc, char *argv[]) {
 
     return app.exec();
 }
+
+#include "main.moc"

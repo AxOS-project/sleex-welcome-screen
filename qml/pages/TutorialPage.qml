@@ -27,9 +27,51 @@ Item {
         ? currentStep.calcTargetRect(root.width, root.height)
         : Qt.rect(0, 0, 0, 0)
 
+    property int previousStepIndex: -1
+
+    function executeEndCmd(index) {
+        if (index >= 0 && index < stepsData.count) {
+            let step = stepsData.getStep(index);
+            if (step && step.endCmd) {
+                SysUtils.runCmd(step.endCmd);
+            }
+        }
+    }
+
+    function forceEndCmd() {
+        if (previousStepIndex >= 0) {
+            executeEndCmd(previousStepIndex);
+            previousStepIndex = -1;
+        }
+    }
+
+    function executeStartCmd(index) {
+        if (index >= 0 && index < stepsData.count) {
+            let step = stepsData.getStep(index);
+            if (step && step.startCmd) {
+                SysUtils.runCmd(step.startCmd);
+            }
+        }
+    }
+
+    onCurrentStepIndexChanged: {
+        if (isCurrentPage && previousStepIndex !== currentStepIndex) {
+            executeEndCmd(previousStepIndex);
+            executeStartCmd(currentStepIndex);
+            previousStepIndex = currentStepIndex;
+        }
+    }
+
     onIsCurrentPageChanged: {
         if (isCurrentPage) {
             currentStepIndex = 0;
+            if (previousStepIndex === -1) {
+                executeStartCmd(0);
+                previousStepIndex = 0;
+            }
+        } else {
+            executeEndCmd(previousStepIndex);
+            previousStepIndex = -1;
         }
     }
 

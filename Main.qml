@@ -28,6 +28,9 @@ Window {
         property int currentStageIndex: 0
 
         function exitApp() {
+            if (currentStageIndex === 2) {
+                tutorialView.forceEndCmd();
+            }
             fadeOutAnim.start();
         }
 
