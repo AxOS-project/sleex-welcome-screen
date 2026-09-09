@@ -134,9 +134,9 @@ QtObject {
             property string description: "The ambient desktop background displays your wallpaper, quotes, informations about Sleex and central desktop clock."
             property string shortcut: "Right click on the clock to move it or change it's scale"
             property var calcTargetRect: function(w, h) {
-                var bgW = Math.min(460, w * 0.35);
-                var bgH = Math.min(240, h * 0.3);
-                return Qt.rect((w - bgW) / 2, (h - bgH) / 2 - 30, bgW, bgH)
+                var marginX = w * 0.05;
+                var marginY = h * 0.05;
+                return Qt.rect(marginX, marginY + 24, w - marginX * 2, h - marginY * 2 - 24)
             }
             property string startCmd: ""
             property string endCmd: ""
