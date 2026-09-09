@@ -93,7 +93,7 @@ QtObject {
                 return Qt.rect((w - dashW) / 2, (h - dashH) / 2, dashW, dashH)
             }
             property string preferredPosition: "left"
-            property string startCmd: "qs -p /usr/share/sleex/ ipc call dashboard open"
+            property string startCmd: "qs -p /usr/share/sleex/ ipc call dashboard openTutorial"
             property string endCmd: "qs -p /usr/share/sleex/ ipc call dashboard close"
         },
         QtObject {
@@ -106,7 +106,7 @@ QtObject {
             property var calcTargetRect: function(w, h) {
                 return Qt.rect(16, 52, w - 32, 210)
             }
-            property string startCmd: "qs -p /usr/share/sleex/ ipc call wppselector open"
+            property string startCmd: "qs -p /usr/share/sleex/ ipc call wppselector openTutorial"
             property string endCmd: "qs -p /usr/share/sleex/ ipc call wppselector close"  
             property string preferredPosition: "bottom"
         },
@@ -122,7 +122,7 @@ QtObject {
                 var cheatH = 950;
                 return Qt.rect((w - cheatW) / 2, (h - cheatH) / 2, cheatW, cheatH)
             }
-            property string startCmd: "qs -p /usr/share/sleex/ ipc call cheatsheet open"
+            property string startCmd: "qs -p /usr/share/sleex/ ipc call cheatsheet openTutorial"
             property string endCmd: "qs -p /usr/share/sleex/ ipc call cheatsheet close"
             property string preferredPosition: "bottom"
         },

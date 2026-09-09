@@ -38,6 +38,7 @@ int main(int argc, char *argv[]) {
             if (lsw) {
                 lsw->setLayer(LayerShellQt::Window::LayerOverlay);
                 lsw->setKeyboardInteractivity(LayerShellQt::Window::KeyboardInteractivityExclusive);
+                lsw->setCloseOnDismissed(false);
                 lsw->setExclusiveZone(-1);
                 lsw->setScope("welcome-screen");
                 lsw->setAnchors(LayerShellQt::Window::Anchors(
