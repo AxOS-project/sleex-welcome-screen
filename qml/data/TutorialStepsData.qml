@@ -18,10 +18,10 @@ QtObject {
         },
         QtObject {
             property string id: "workspaces"
-            property string title: "Workspace Switcher"
+            property string title: "Workspace Switcher & App launcher"
             property string icon: "grid_view"
             property string subtitle: "Centered Desktop Navigation"
-            property string description: "Positioned at the top-center of the bar, the Workspace Switcher displays active virtual desktops."
+            property string description: "Positioned at the top-center of the bar, the Workspace Switcher displays active virtual desktops. Right click on it to open the app launcher and quickly search for installed applications."
             property string shortcut: "Super + 1..9  •  Super + Scroll"
             property var calcTargetRect: function(w, h) {
                 var barW = Math.min(320, w * 0.3);
