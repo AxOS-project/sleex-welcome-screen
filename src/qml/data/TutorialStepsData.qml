@@ -101,10 +101,10 @@ QtObject {
             property string title: "Wallpaper Selector"
             property string icon: "wallpaper"
             property string subtitle: "Top Desktop Customization Panel"
-            property string description: "The Wallpaper Selector opens across the top of the desktop. Browse wallpapers, generate Material 3 color palettes automatically, and customize desktop visuals."
+            property string description: "The Wallpaper Selector opens across the top of the desktop. Browse wallpapers, generate Material 3 color palettes automatically, and customize desktop visuals. You can also search online images from Unsplash."
             property string shortcut: "Super + T"
             property var calcTargetRect: function(w, h) {
-                return Qt.rect(16, 52, w - 32, 210)
+                return Qt.rect((w - 1000) / 2, 48, 1000, 700)
             }
             property string startCmd: "qs -p /usr/share/sleex/ ipc call wppselector openTutorial"
             property string endCmd: "qs -p /usr/share/sleex/ ipc call wppselector close"  
