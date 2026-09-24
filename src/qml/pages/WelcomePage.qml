@@ -116,6 +116,47 @@ Rectangle {
         width: Math.min(840, parent.width - 60)
         spacing: 36
 
+        Rectangle {
+            id: vmInfoRect
+            visible: SysUtils.isVirtualMachine()
+            Layout.alignment: Qt.AlignHCenter
+            width: vmInfoRow.implicitWidth + 32
+            height: vmInfoRow.implicitHeight + 24
+            color: "transparent"
+            border.color: Appearance.colors.colPrimary
+            border.width: 1
+            radius: 8
+            opacity: root.headerOpacity
+            transform: Translate { y: root.headerYOffset }
+
+            RowLayout {
+                id: vmInfoRow
+                anchors.centerIn: parent
+                spacing: 16
+
+                MaterialSymbol {
+                    text: "report_problem"
+                    iconSize: 28
+                    color: Appearance.colors.colPrimary
+                }
+
+                ColumnLayout {
+                    spacing: 4
+                    StyledText {
+                        text: "Virtual machine environment detected"
+                        font.pixelSize: 14
+                        font.bold: true
+                        color: Appearance.colors.colPrimary
+                    }
+                    StyledText {
+                        text: "You may experience performance and stability issues"
+                        font.pixelSize: 12
+                        color: Appearance.colors.colSubtext
+                    }
+                }
+            }
+        }
+
         SleexLogoHeader {
             Layout.alignment: Qt.AlignHCenter
             titleText: "Welcome to Sleex"

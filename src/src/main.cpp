@@ -3,6 +3,7 @@
 #include <QQuickWindow>
 #include <QScreen>
 #include <QProcess>
+#include <QDebug>
 #include <LayerShellQt/window.h>
 #include <QQmlContext>
 
@@ -13,6 +14,16 @@ public:
         if (!command.isEmpty()) {
             QProcess::startDetached("sh", QStringList{"-c", command});
         }
+    }
+
+    Q_INVOKABLE bool isVirtualMachine() {
+        QProcess process;
+        qInfo() << "Checking if running in a virtual machine...";
+        process.start("sudo virt-what");
+        process.waitForFinished();
+        QString output = process.readAllStandardOutput().trimmed();
+        qInfo() << "Virtual machine output:" << output;
+        return !output.isEmpty();
     }
 };
 
